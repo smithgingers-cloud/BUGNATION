@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BUGNATION by Jackson Smith</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+margin: 0;
+font-family: Georgia, serif;
+background-color: #0f1a14;
+color: #e8f5e9;
+}
+
+header {
+background: #13241a;
+padding: 25px;
+text-align: center;
+border-bottom: 1px solid #2e4d3a;
+}
+
+header h1 {
+margin: 0;
+font-size: 2.8rem;
+letter-spacing: 3px;
+color: #a5d6a7;
+}
+
+header p {
+margin-top: 5px;
+color: #81c784;
+}
+
+.container {
+max-width: 900px;
+margin: auto;
+padding: 20px;
+}
+
+.entry {
+background: #16261c;
+padding: 20px;
+margin-bottom: 20px;
+border-radius: 12px;
+border: 1px solid #2e4d3a;
+}
+
+.entry h2 {
+margin-top: 0;
+color: #c8e6c9;
+}
+
+.meta {
+font-size: 0.85rem;
+color: #9ccc9c;
+margin-bottom: 10px;
+}
+
+img {
+max-width: 100%;
+border-radius: 10px;
+margin-top: 10px;
+}
+
+.btn {
+background: #66bb6a;
+color: black;
+padding: 10px 15px;
+border: none;
+border-radius: 6px;
+cursor: pointer;
+margin-bottom: 20px;
+font-weight: bold;
+}
+
+.btn:hover {
+background: #4caf50;
+}
+
+footer {
+text-align: center;
+padding: 20px;
+border-top: 1px solid #2e4d3a;
+color: #81c784;
+}
+
+</style>
+</head>
+<body>
+
+<header>
+<h1>BUGNATION</h1>
+<p>Field Journal by Jackson Smith</p>
+</header>
+
+<div class="container">
+
+<button class="btn" onclick="addEntry()">+ Log New Bug</button>
+
+<div id="entries">
+
+<div class="entry">
+<h2>Lady Beetle (Ladybug)</h2>
+<div class="meta">📍 Backyard Garden | 📅 March 27, 2026</div>
+<p>Observed crawling along a tomato leaf. Bright red shell with 7 black spots. Likely feeding on aphids.</p>
+</div>
+
+</div>
+
+</div>
+
+<footer>
+<p>© 2026 BUGNATION — Bugs before promiscuous women.</p>
+</footer>
+
+<script>
+function addEntry() {
+const name = prompt("Insect name:");
+const location = prompt("Where did you find it?");
+const notes = prompt("Behavior / description:");
+const image = prompt("Paste image URL (optional):");
+
+if (!name || !notes) return;
+
+const date = new Date().toLocaleDateString();
+
+const entry = document.createElement("div");
+entry.className = "entry";
+
+entry.innerHTML = `
+<h2>${name}</h2>
+<div class="meta">📍 ${location || "Unknown"} | 📅 ${date}</div>
+<p>${notes}</p>
+${image ? `<img src="${image}">` : ""}
+`;
+
+document.getElementById("entries").prepend(entry);
+}
+</script>
+
+</body>
+</html>
