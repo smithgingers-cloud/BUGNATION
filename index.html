@@ -9,80 +9,62 @@
 body {
 margin: 0;
 font-family: Georgia, serif;
-background-color: #0f1a14;
-color: #e8f5e9;
+background-color: #0e1511;
+color: #e6f2e8;
 }
 
 header {
-background: #13241a;
-padding: 25px;
 text-align: center;
-border-bottom: 1px solid #2e4d3a;
+padding: 40px 20px 20px;
+border-bottom: 1px solid #2a3f33;
 }
 
 header h1 {
 margin: 0;
-font-size: 2.8rem;
-letter-spacing: 3px;
+font-size: 3rem;
+letter-spacing: 4px;
 color: #a5d6a7;
 }
 
 header p {
-margin-top: 5px;
 color: #81c784;
+margin-top: 8px;
 }
 
 .container {
-max-width: 900px;
+max-width: 800px;
 margin: auto;
 padding: 20px;
 }
 
-.entry {
-background: #16261c;
-padding: 20px;
-margin-bottom: 20px;
-border-radius: 12px;
-border: 1px solid #2e4d3a;
+.post {
+margin-bottom: 50px;
+padding-bottom: 20px;
+border-bottom: 1px solid #2a3f33;
 }
 
-.entry h2 {
-margin-top: 0;
+.post h2 {
+margin-bottom: 5px;
 color: #c8e6c9;
 }
 
 .meta {
 font-size: 0.85rem;
 color: #9ccc9c;
-margin-bottom: 10px;
+margin-bottom: 15px;
 }
 
-img {
-max-width: 100%;
+.post img {
+width: 100%;
 border-radius: 10px;
-margin-top: 10px;
-}
-
-.btn {
-background: #66bb6a;
-color: black;
-padding: 10px 15px;
-border: none;
-border-radius: 6px;
-cursor: pointer;
-margin-bottom: 20px;
-font-weight: bold;
-}
-
-.btn:hover {
-background: #4caf50;
+margin-bottom: 15px;
 }
 
 footer {
 text-align: center;
-padding: 20px;
-border-top: 1px solid #2e4d3a;
-color: #81c784;
+padding: 30px;
+color: #6fa876;
+border-top: 1px solid #2a3f33;
 }
 
 </style>
@@ -91,53 +73,44 @@ color: #81c784;
 
 <header>
 <h1>BUGNATION</h1>
-<p>Field Journal by Jackson Smith</p>
+<p>by Jackson Smith — Insect Archive</p>
 </header>
 
 <div class="container">
 
-<button class="btn" onclick="addEntry()">+ Log New Bug</button>
-
-<div id="entries">
-
-<div class="entry">
-<h2>Lady Beetle (Ladybug)</h2>
+<!-- POST START -->
+<div class="post">
+<h2>Lady Beetle (Coccinellidae)</h2>
 <div class="meta">📍 Backyard Garden | 📅 March 27, 2026</div>
-<p>Observed crawling along a tomato leaf. Bright red shell with 7 black spots. Likely feeding on aphids.</p>
-</div>
 
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Coccinella_septempunctata.jpg">
+
+<p>
+Found resting on a tomato leaf. Bright red shell with seven distinct black spots.
+Appears to be hunting aphids. Calm behavior, slow movement.
+</p>
 </div>
+<!-- POST END -->
+
+
+<!-- COPY THIS BLOCK FOR NEW BUGS -->
+<div class="post">
+<h2>Insect Name</h2>
+<div class="meta">📍 Location | 📅 Date</div>
+
+<img src="IMAGE URL HERE">
+
+<p>
+Description of what you observed. Movement, color, behavior, anything weird or interesting.
+</p>
+</div>
+<!-- END COPY -->
 
 </div>
 
 <footer>
-<p>© 2026 BUGNATION — Bugs before promiscuous women.</p>
+<p>© 2026 BUGNATION — Documenting the overlooked.</p>
 </footer>
-
-<script>
-function addEntry() {
-const name = prompt("Insect name:");
-const location = prompt("Where did you find it?");
-const notes = prompt("Behavior / description:");
-const image = prompt("Paste image URL (optional):");
-
-if (!name || !notes) return;
-
-const date = new Date().toLocaleDateString();
-
-const entry = document.createElement("div");
-entry.className = "entry";
-
-entry.innerHTML = `
-<h2>${name}</h2>
-<div class="meta">📍 ${location || "Unknown"} | 📅 ${date}</div>
-<p>${notes}</p>
-${image ? `<img src="${image}">` : ""}
-`;
-
-document.getElementById("entries").prepend(entry);
-}
-</script>
 
 </body>
 </html>
